@@ -1,22 +1,11 @@
-import java.util.Scanner;
-
 public class DayOfTheWeek{
  
     public static void main(String[] args)
     {
-    	String answer, upperCase;
-        
-    	Scanner kb = new Scanner(System.in);
+    	PickDay pick = new PickDay();
     	
-    	System.out.print("Ask about a day of the day: ");
-    	
-    	answer = kb.next();
-    	
-    	upperCase = answer.toUpperCase();
-    	
-    	PickDay pick = new PickDay(Day.valueOf(upperCase));
-        pick.dayIsLike();
-        
-        kb.close();
+    	pick.setAnswer();
+    	pick.check();
+    	pick.dayIsLike(Day.valueOf(pick.getAnswer()));
     }
 }

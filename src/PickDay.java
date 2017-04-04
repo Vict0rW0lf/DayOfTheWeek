@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 enum Day
 {
     SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
@@ -6,16 +8,42 @@ enum Day
 
 public class PickDay {
 	
+	Scanner kb = new Scanner(System.in);
+	String answer;
 	Day day;
+    
+	public void setAnswer(){
+		System.out.println("What is your favorite day of the week? ");
+		String answer = kb.next();
+		String upperCase = answer.toUpperCase();			
+		this.answer = upperCase;	
+	}
 	
-	// Constructor
-    public PickDay(Day day)
-    {
-        this.day = day;
+	public String getAnswer(){
+		return answer;		
+	}
+	
+	public static boolean contains(String test) {
+
+	    for (Day c : Day.values()) {
+	        if (c.name().equals(test)) {
+	            return true;
+	        }
+	    }
+
+	    return false;
+	}	
+    
+    public void check(){
+    	while(contains(answer) == false){
+    		System.out.println("Oops, that's not a valid input!");
+    		setAnswer();
+    	}
     }
 
-	public void dayIsLike()
-    {
+	public void dayIsLike(Day day)
+    {	
+		this.day = day;
 		
         switch (day)
         {
