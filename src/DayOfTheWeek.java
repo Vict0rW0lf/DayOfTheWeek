@@ -1,41 +1,6 @@
 import java.util.Scanner;
- 
-enum Day
-{
-    SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
-    THURSDAY, FRIDAY, SATURDAY;
-}
- 
-public class DayOfTheWeek
-{
-    Day day;
- 
-    // Constructor
-    public DayOfTheWeek(Day day)
-    {
-        this.day = day;
-    }
- 
-    // Prints a line about Day using switch
-    public void dayIsLike()
-    {
-        switch (day)
-        {
-        case MONDAY:
-            System.out.println("Mondays are bad.");
-            break;
-        case FRIDAY:
-            System.out.println("Fridays are better.");
-            break;
-        case SATURDAY:
-        case SUNDAY:
-            System.out.println("Weekends are best.");
-            break;
-        default:
-            System.out.println("Midweek days are so-so.");
-            break;
-        }
-    }
+
+public class DayOfTheWeek{
  
     public static void main(String[] args)
     {
@@ -49,8 +14,8 @@ public class DayOfTheWeek
     	
     	upperCase = answer.toUpperCase();
     	
-    	DayOfTheWeek t1 = new DayOfTheWeek(Day.valueOf(upperCase));
-        t1.dayIsLike();
+    	PickDay pick = new PickDay(Day.valueOf(upperCase));
+        pick.dayIsLike();
         
         kb.close();
     }
